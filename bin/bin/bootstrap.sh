@@ -1,6 +1,9 @@
 #! /bin/sh
 
-git clone github.com:kovan/dotfiles.git
+git clone https://github.com:kovan/dotfiles.git
+cd dotfiles
+git remote set-url origin "git@github.com:kovan/dotfiles.git"
+cd ..
 
 #git clone --depth 1 --single-branch https://github.com/doomemacs/doomemacs ~/.config/emacs
 #~/.config/emacs/bin/doom install
@@ -12,7 +15,7 @@ else
 	INSTALL_CMD="apt install -y"
 fi
 
-for pkg in fish curl wget tmux git fzf vim net-tools apt-file netcat strace ltrace bwm-ng ripgrep htop fd-find aptitude bpytop rsync lsb-release gnupg ca-certificates lsof
+for pkg in fish curl wget tmux git fzf nvim net-tools apt-file netcat strace ltrace bwm-ng ripgrep htop fd-find aptitude bpytop rsync lsb-release gnupg ca-certificates lsof
 do
 	sudo $INSTALL_CMD $pkg
 done

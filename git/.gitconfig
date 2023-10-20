@@ -1,6 +1,6 @@
 [user]
 	name = John Smith
-
+        email = you@example.com
 
 [alias]
         graph = log --graph --oneline --all --simplify-by-decoration

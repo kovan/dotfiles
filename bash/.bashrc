@@ -116,9 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export DEBEMAIL="venthur@debian.org"
-export DEBFULLNAME="Bastian Venthur"
-
 export EDITOR=nvim
 
 alias ll='ls -l'
