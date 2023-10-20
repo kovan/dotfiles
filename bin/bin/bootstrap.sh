@@ -1,6 +1,6 @@
 #! /bin/sh
 
-git clone https://github.com:kovan/dotfiles.git
+git clone https://github.com/kovan/dotfiles.git
 cd dotfiles
 git remote set-url origin "git@github.com:kovan/dotfiles.git"
 cd ..
