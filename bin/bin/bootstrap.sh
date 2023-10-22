@@ -1,8 +1,8 @@
 #!/bin/sh
 
-git clone https://github.com/kovan/dotfiles.git
+git clone https://bitbucket.org/kovan/dotfiles.git
 cd dotfiles
-git remote set-url origin "git@github.com:kovan/dotfiles.git"
+git remote set-url origin "git@bitbucket.org:kovan/dotfiles.git"
 cd ..
 
 #git clone --depth 1 --single-branch https://github.com/doomemacs/doomemacs ~/.config/emacs
@@ -24,4 +24,7 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 
 fish -c "omf install https://github.com/jhillyerd/plugin-git"
 fish -c "omf install https://github.com/jethrokuan/fzf"
+fish -c "omf install fisk"
+fish -c "omf theme fish"
+
 
