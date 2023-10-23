@@ -12,5 +12,4 @@ fish_add_path $HOME/.config/emacs/bin
 fish_add_path /snap/bin 
 fish_add_path $HOME/.poetry/bin 
 
-omf theme cbjohnson
 

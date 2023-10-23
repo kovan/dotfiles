@@ -24,4 +24,6 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 
 fish -c "omf install https://github.com/jhillyerd/plugin-git"
 fish -c "omf install https://github.com/jethrokuan/fzf"
+fish -c "omf install fisk"
+fish -c "omf theme fisk"
 
