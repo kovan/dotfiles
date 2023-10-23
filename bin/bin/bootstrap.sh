@@ -27,4 +27,3 @@ fish -c "omf install https://github.com/jethrokuan/fzf"
 fish -c "omf install fisk"
 fish -c "omf theme fish"
 
-
