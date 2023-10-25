@@ -15,7 +15,7 @@ else
 	INSTALL_CMD="apt install -y"
 fi
 
-for pkg in fish stow curl wget tmux git fzf neovim net-tools apt-file netcat strace ltrace bwm-ng ripgrep htop fd-find aptitude bpytop rsync lsb-release gnupg ca-certificates lsof
+for pkg in make fish stow curl wget tmux git fzf neovim net-tools apt-file netcat strace ltrace bwm-ng ripgrep htop fd-find aptitude bpytop rsync lsb-release gnupg ca-certificates lsof
 do
 	sudo $INSTALL_CMD $pkg
 done
@@ -25,5 +25,6 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 fish -c "omf install https://github.com/jhillyerd/plugin-git"
 fish -c "omf install https://github.com/jethrokuan/fzf"
 fish -c "omf install fisk"
-fish -c "omf theme fish"
+fish -c "omf theme fisk"
 
+chsh --shell /usr/bin/fish k
