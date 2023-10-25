@@ -1,8 +1,8 @@
 #!/bin/sh
 
-git clone https://github.com/kovan/dotfiles.git
+git clone https://bitbucket.org/kovan/dotfiles.git
 cd dotfiles
-git remote set-url origin "git@github.com:kovan/dotfiles.git"
+git remote set-url origin "git@bitbucket.org:kovan/dotfiles.git"
 cd ..
 
 #git clone --depth 1 --single-branch https://github.com/doomemacs/doomemacs ~/.config/emacs
@@ -15,7 +15,7 @@ else
 	INSTALL_CMD="apt install -y"
 fi
 
-for pkg in thefuck fish stow curl wget tmux git fzf neovim net-tools apt-file netcat strace ltrace bwm-ng ripgrep htop fd-find aptitude bpytop rsync lsb-release gnupg ca-certificates lsof
+for pkg in thefuck make fish stow curl wget tmux git fzf neovim net-tools apt-file netcat strace ltrace bwm-ng ripgrep htop fd-find aptitude bpytop rsync lsb-release gnupg ca-certificates lsof
 do
 	sudo $INSTALL_CMD $pkg
 done
@@ -27,3 +27,4 @@ fish -c "omf install https://github.com/jethrokuan/fzf"
 fish -c "omf install fisk"
 fish -c "omf theme fisk"
 
+chsh --shell /usr/bin/fish k

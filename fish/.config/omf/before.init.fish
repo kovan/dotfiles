@@ -16,10 +16,11 @@ alias sc "sudo systemctl"
 alias pacin "sudo pacman --noconfirm -S"
 alias aptin "sudo apt install"
 
-fish_add_path $HOME/bin
-fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.config/emacs/bin 
-fish_add_path /snap/bin 
-fish_add_path $HOME/.poetry/bin 
+set -U fish_user_paths $HOME/bin $fish_user_paths
+set -U fish_user_paths $HOME/.local/bin $fish_user_paths
+set -U fish_user_paths $HOME/.config/emacs/bin  $fish_user_paths
+set -U fish_user_paths /snap/bin  $fish_user_paths
+set -U fish_user_paths $HOME/.poetry/bin  $fish_user_paths
+
 
 
