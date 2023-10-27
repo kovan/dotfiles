@@ -22,5 +22,6 @@ set -U fish_user_paths $HOME/.config/emacs/bin  $fish_user_paths
 set -U fish_user_paths /snap/bin  $fish_user_paths
 set -U fish_user_paths $HOME/.poetry/bin  $fish_user_paths
 set -U fish_user_paths $HOME/.cargo/bin  $fish_user_paths
+set -U fish_user_paths /opt/google-cloud-cli/bin  $fish_user_paths
 
 
