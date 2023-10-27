@@ -1,6 +1,5 @@
 #!/bin/sh
 
-git clone https://bitbucket.org/kovan/dotfiles.git
 cd dotfiles
 git remote set-url origin "git@bitbucket.org:kovan/dotfiles.git"
 cd ..
