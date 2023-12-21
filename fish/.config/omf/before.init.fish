@@ -11,10 +11,13 @@ end
 alias lola "git log --graph --decorate --pretty=oneline --abbrev-commit"
 alias drop_cache "sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
 alias vi nvim
+alias py python
 alias mapkeys "gsettings set org.gnome.desktop.input-sources xkb-options \"['ctrl:swap_lwin_lctl']\""
 alias sc "sudo systemctl"
 alias pacin "sudo pacman --noconfirm -S"
 alias aptin "sudo apt install"
+
+set -g -x ANDROID_HOME $HOME/Android/Sdk
 
 set -U fish_user_paths $HOME/bin $fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $fish_user_paths
@@ -23,5 +26,6 @@ set -U fish_user_paths /snap/bin  $fish_user_paths
 set -U fish_user_paths $HOME/.poetry/bin  $fish_user_paths
 set -U fish_user_paths $HOME/.cargo/bin  $fish_user_paths
 set -U fish_user_paths /opt/google-cloud-cli/bin  $fish_user_paths
-
+set -U fish_user_paths $ANDROID_HOME/emulator  $fish_user_paths
+set -U fish_user_paths $ANDROID_HOME/platform-tools  $fish_user_paths
 
