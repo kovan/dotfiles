@@ -1,126 +1,87 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+#
+# ~/.bashrc
+#
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth:erasedups
+[[ -f ~/.welcome_screen ]] && . ~/.welcome_screen
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+_set_liveuser_PS1() {
+    PS1='[\u@\h \W]\$ '
+    if [ "$(whoami)" = "liveuser" ] ; then
+        local iso_version="$(grep ^VERSION= /usr/lib/endeavouros-release 2>/dev/null | cut -d '=' -f 2)"
+        if [ -n "$iso_version" ] ; then
+            local prefix="eos-"
+            local iso_info="$prefix$iso_version"
+            PS1="[\u@$iso_info \W]\$ "
+        fi
+    fi
+}
+_set_liveuser_PS1
+unset -f _set_liveuser_PS1
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=100000
-HISTFILESIZE=100000
-
-# store history immediately not only when session terminates
-PROMPT_COMMAND='history -a'
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# define some colors (solarized)
-tput sgr0; # reset colors
-bold=$(tput bold);
-reset=$(tput sgr0);
-black=$(tput setaf 0);
-red=$(tput setaf 1);
-green=$(tput setaf 2);
-yellow=$(tput setaf 3);
-blue=$(tput setaf 4);
-magenta=$(tput setaf 5);
-cyan=$(tput setaf 6);
-white=$(tput setaf 7);
-brightblack=$(tput setaf 8);
-brightred=$(tput setaf 9);
-brightgreen=$(tput setaf 10);
-brightyellow=$(tput setaf 11);
-brightblue=$(tput setaf 12);
-brightmagenta=$(tput setaf 13);
-brightcyan=$(tput setaf 14);
-brightwhite=$(tput setaf 15);
+ShowInstallerIsoInfo() {
+    local file=/usr/lib/endeavouros-release
+    if [ -r $file ] ; then
+        cat $file
+    else
+        echo "Sorry, installer ISO info is not available." >&2
+    fi
+}
 
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+alias ls='ls --color=auto'
+alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
+alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
+[[ "$(whoami)" = "root" ]] && return
 
-PROMPT_DIRTRIM=1
-GIT_PS1_SHOWDIRTYSTATE=1
+[[ -z "$FUNCNEST" ]] && export FUNCNEST=100          # limits recursive functions, see 'man bash'
 
-PS1='${debian_chroot:+($debian_chroot)}\[${bold}${brightblack}\]\u@\h\[${brightblack}\]:\[${brightblue}\]\w\[${brightyellow}\]$(__git_ps1)\[${brightblack}\]\$\[${reset}\] '
+## Use the up and down arrow keys for finding a command in history
+## (you can write some initial letters of the command first).
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+################################################################################
+## Some generally useful functions.
+## Consider uncommenting aliases below to start using these functions.
+##
+## October 2021: removed many obsolete functions. If you still need them, please look at
+## https://github.com/EndeavourOS-archive/EndeavourOS-archiso/raw/master/airootfs/etc/skel/.bashrc
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+_open_files_for_editing() {
+    # Open any given document file(s) for editing (or just viewing).
+    # Note1:
+    #    - Do not use for executable files!
+    # Note2:
+    #    - Uses 'mime' bindings, so you may need to use
+    #      e.g. a file manager to make proper file bindings.
 
-    alias grep='grep --color=auto'
-    alias diff='diff --color=auto'
-fi
+    if [ -x /usr/bin/exo-open ] ; then
+        echo "exo-open $@" >&2
+        setsid exo-open "$@" >& /dev/null
+        return
+    fi
+    if [ -x /usr/bin/xdg-open ] ; then
+        for file in "$@" ; do
+            echo "xdg-open $file" >&2
+            setsid xdg-open "$file" >& /dev/null
+        done
+        return
+    fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+    echo "$FUNCNAME: package 'xdg-utils' or 'exo' is required." >&2
+}
 
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
+#------------------------------------------------------------
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+## Aliases for the functions above.
+## Uncomment an alias if you want to use it.
+##
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-export EDITOR=nvim
-
-alias ll='ls -l'
-alias la='ls -la'
-alias lh='ls -lh'
-alias lt='ls -lhtr'
-alias ..='cd ..'
+# alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
+# alias pacdiff=eos-pacdiff
+################################################################################
 
