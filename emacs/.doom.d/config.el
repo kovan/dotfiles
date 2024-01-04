@@ -77,5 +77,7 @@
 
 (menu-bar-mode)
 ;;(toggle-frame-maximized)
-(cua-mode 1)
+;;(cua-mode 1)
+(toggle-frame-fullscreen)
+;;(neotree-show)
 (add-to-list 'auto-mode-alist '("\\.wisp\\'" . wisp-mode))

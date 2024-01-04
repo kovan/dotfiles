@@ -21,6 +21,7 @@ alias sc "sudo systemctl"
 alias pacin "sudo pacman --noconfirm -S"
 alias aptin "sudo apt install"
 
+set -xg GTK_THEME Adwaita:dark
 set -g -x ANDROID_HOME $HOME/Android/Sdk
 
 set -U fish_user_paths $HOME/bin $fish_user_paths
