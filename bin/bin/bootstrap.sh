@@ -10,6 +10,7 @@ fi
 
 
 packages="
+fd
 bandwhich
 tree
 tldr
