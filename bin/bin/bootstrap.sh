@@ -10,6 +10,7 @@ fi
 
 
 packages="
+editorconfig
 fd
 bandwhich
 tree

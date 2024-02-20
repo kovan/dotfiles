@@ -32,5 +32,5 @@ set -U fish_user_paths $HOME/.poetry/bin  $fish_user_paths
 set -U fish_user_paths $HOME/.cargo/bin  $fish_user_paths
 set -U fish_user_paths /opt/google-cloud-cli/bin  $fish_user_paths
 set -U fish_user_paths $ANDROID_HOME/emulator  $fish_user_paths
-set -U fish_user_paths $ANDROID_HOME/platform-tools  $fish_user_paths
+set -U fish_user_paths (gem env user_gemhome)/bin  $fish_user_paths
 
