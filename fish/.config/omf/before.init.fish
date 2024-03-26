@@ -21,6 +21,14 @@ alias sc "sudo systemctl"
 alias pacin "sudo pacman --noconfirm -S"
 alias aptin "sudo apt install"
 
+
+# Title options
+set -g theme_title_display_process yes
+set -g theme_title_display_path yes
+set -g theme_title_display_user yes
+set -g theme_title_use_abbreviated_path yes
+
+
 set -xg GTK_THEME Adwaita:dark
 set -g -x ANDROID_HOME $HOME/Android/Sdk
 
@@ -40,3 +48,4 @@ set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
 fish_add_path -gP "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin";
 ! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
 ! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
+

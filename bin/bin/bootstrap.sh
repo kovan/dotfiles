@@ -55,10 +55,16 @@ make
 
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
-fish -c "omf install https://github.com/jhillyerd/plugin-git"
-fish -c "omf install https://github.com/jethrokuan/fzf"
-fish -c "omf install fisk"
-fish -c "omf theme fisk"
+fish -c "
+omf install https://github.com/jhillyerd/plugin-git \
+omf install https://github.com/jethrokuan/fzf \
+omf install z \
+omf install fisk \
+omf theme fisk \
+omf install export \
+omf install colored-man-pages \
+omf install bass
+"
 
 chsh --shell /usr/bin/fish k
 
