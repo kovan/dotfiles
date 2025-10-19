@@ -40,13 +40,13 @@ set -U fish_user_paths $HOME/.cargo/bin  $fish_user_paths
 set -U fish_user_paths /opt/google-cloud-cli/bin  $fish_user_paths
 #set -U fish_user_paths (gem env user_gemhome)/bin  $fish_user_paths
 
-set -gx ANDROID_HOME "/opt/android-sdk/"
-set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
-set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
-set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
-fish_add_path -gP "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin";
-! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
-! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
+#set -gx ANDROID_HOME "/opt/android-sdk/"
+#set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
+#set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
+#set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
+#fish_add_path -gP "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin";
+#! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
+#! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
 set -gx NODE_OPTIONS "--openssl-legacy-provider"
 #if not set -q VSCODE_TERM
 #    tmux attach || tmux
