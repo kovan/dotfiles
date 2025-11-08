@@ -76,6 +76,7 @@
 ;; they are implemented.
 
 (menu-bar-mode)
+(tool-bar-mode)
 ;;(toggle-frame-maximized)
 ;;(cua-mode 1)
 (toggle-frame-fullscreen)

@@ -51,3 +51,5 @@
 
 (package! geiser)
 (package! wisp-mode )
+;;(package! :package "rainbow-delimiters" :host github :type git :repo "Fanael/rainbow-delimiters")
+(package! highlight-function-calls)

@@ -8,6 +8,16 @@ function fuck -d "Correct your previous console command"
   end
 end
 
+function export
+    if [ $argv ] 
+        set var (echo $argv | cut -f1 -d=)
+        set val (echo $argv | cut -f2 -d=)
+        set -g -x $var $val
+    else
+        echo 'export var=value'
+    end
+end
+
 set -g fish_greeting
 fish_config theme choose Dracula
 
@@ -40,7 +50,7 @@ set -U fish_user_paths $HOME/.cargo/bin  $fish_user_paths
 set -U fish_user_paths /opt/google-cloud-cli/bin  $fish_user_paths
 #set -U fish_user_paths (gem env user_gemhome)/bin  $fish_user_paths
 
-#set -gx ANDROID_HOME "/opt/android-sdk/"
+set -gx ANDROID_HOME $HOME/Android/Sdk
 #set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
 #set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
 #set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
