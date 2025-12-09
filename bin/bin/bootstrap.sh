@@ -50,7 +50,7 @@ done
 
 
 cd dotfiles
-git remote set-url origin "git@bitbucket.org:kovan/dotfiles.git"
+git remote set-url origin "git@github.com:kovan/dotfiles.git"
 make
 
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
