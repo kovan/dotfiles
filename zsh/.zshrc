@@ -256,3 +256,12 @@ fi
 if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/k/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<

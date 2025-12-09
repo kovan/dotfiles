@@ -48,6 +48,7 @@ set -U fish_user_paths /snap/bin  $fish_user_paths
 set -U fish_user_paths $HOME/.poetry/bin  $fish_user_paths
 set -U fish_user_paths $HOME/.cargo/bin  $fish_user_paths
 set -U fish_user_paths /opt/google-cloud-cli/bin  $fish_user_paths
+set -U fish_user_paths $HOME/.juliaup/bin  $fish_user_paths
 #set -U fish_user_paths (gem env user_gemhome)/bin  $fish_user_paths
 
 set -gx ANDROID_HOME $HOME/Android/Sdk
