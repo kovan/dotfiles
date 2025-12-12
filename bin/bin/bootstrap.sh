@@ -10,6 +10,7 @@ fi
 
 
 packages="
+cmake
 editorconfig
 fd
 bandwhich
