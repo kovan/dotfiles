@@ -83,3 +83,7 @@
 (require 'which-key)
 (setq which-key-idle-delay 0)
 
+;; in $DOOMDIR/config.el
+(setq doom-font "Fira Code SemiBold")
+
+
