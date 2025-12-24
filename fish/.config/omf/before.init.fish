@@ -19,7 +19,7 @@ function export
 end
 
 set -g fish_greeting
-fish_config theme choose Dracula
+#fish_config theme choose Dracula
 
 alias lola "git log --graph --decorate --pretty=oneline --abbrev-commit"
 alias drop_cache "sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
@@ -37,7 +37,6 @@ set -g theme_title_display_process yes
 set -g theme_title_display_path yes
 set -g theme_title_display_user yes
 set -g theme_title_use_abbreviated_path yes
-
 
 set -xg GTK_THEME Adwaita:dark
 
@@ -62,3 +61,7 @@ set -gx NODE_OPTIONS "--openssl-legacy-provider"
 #if not set -q VSCODE_TERM
 #    tmux attach || tmux
 #end
+
+
+
+source (/usr/sbin/starship init fish --print-full-init | psub)
