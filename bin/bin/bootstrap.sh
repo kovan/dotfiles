@@ -42,6 +42,7 @@ rsync
 lsb-release
 gnupg
 ca-certificates
+starship
 lsof"
 
 echo "$packages" | while read -r pkg; do
@@ -60,8 +61,6 @@ fish -c "
 omf install https://github.com/jhillyerd/plugin-git \
 omf install https://github.com/jethrokuan/fzf \
 omf install z \
-omf install fisk \
-omf theme fisk \
 omf install export \
 omf install colored-man-pages \
 omf install bass
