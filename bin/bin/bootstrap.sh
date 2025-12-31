@@ -55,15 +55,15 @@ cd dotfiles
 git remote set-url origin "git@github.com:kovan/dotfiles.git"
 make
 
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
-fish -c "
-omf install https://github.com/jhillyerd/plugin-git \
-omf install https://github.com/jethrokuan/fzf \
-omf install z \
-omf install export \
-omf install colored-man-pages \
-omf install bass
+#fish -c "
+#omf install https://github.com/jhillyerd/plugin-git \
+#omf install https://github.com/jethrokuan/fzf \
+#omf install z \
+#omf install export \
+#omf install colored-man-pages \
+#omf install bass
 "
 
 chsh --shell /usr/bin/fish k
