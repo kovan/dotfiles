@@ -57,6 +57,16 @@ make
 
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
+fish -c "
+fisher install PatrickF1/fzf.fish
+fisher install jhillyerd/plugin-git
+fisher install IlanCosman/tide@v6
+tide configure --auto --style=Classic --prompt_colors='True color' --classic_prompt_color=Dark --show_time='24-hour format' --classic_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='Two lines, character and frame' --prompt_connection=Dotted --powerline_right_prompt_frame=No --prompt_connection_andor_frame_color=Lightest --prompt_spacing=Compact --icons='Many icons' --transient=Yes
+"
+
+
+
+
 #fish -c "
 #omf install https://github.com/jhillyerd/plugin-git \
 #omf install https://github.com/jethrokuan/fzf \
