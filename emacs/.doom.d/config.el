@@ -86,4 +86,4 @@
 ;; in $DOOMDIR/config.el
 ;;(setq doom-font "Fira Code SemiBold")
 
-
+(setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'semi-bold))

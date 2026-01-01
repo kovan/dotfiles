@@ -43,7 +43,9 @@ lsb-release
 gnupg
 ca-certificates
 starship
-lsof"
+lsof
+ttf-fira-code
+"
 
 echo "$packages" | while read -r pkg; do
 	sudo $INSTALL_CMD $pkg
