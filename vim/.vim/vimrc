@@ -1,0 +1,107 @@
+set noswapfile
+
+" Filetype recognition and auto config
+filetype indent plugin on
+syntax on
+
+"" GUI improvements
+set shortmess+=I        " Don't show greeting screen when starting vim w/o file
+set mouse=a             " Enable mouse for all modes
+
+set history=10000       " the maximum
+
+set ttyfast
+set belloff=all
+set lazyredraw
+
+set hidden
+
+set display=lastline
+set ruler
+set laststatus=2
+set showcmd
+
+set completeopt=longest,menuone,preview,popup
+
+set wildmenu
+set wildmode=longest:full,full  " do full completion on second keystroke
+
+" open new split panes to right and bottom
+set splitright
+set splitbelow
+
+set autowrite           " Automatically save before commands like :next and :make
+set autoread
+
+" Searching
+set incsearch
+set hlsearch
+set ignorecase          " Do case insensitive matching...
+set smartcase           " ... but respect case if used
+
+set backspace=indent,eol,start
+set autoindent
+
+set nowrap              " Don't wrap lines
+
+""display tabs and trailing spaces
+set list
+set listchars=extends:⇒,precedes:⇐,tab:▷·,trail:␣
+set nrformats-=octal
+
+set formatoptions+=j    " Remove comment leader when joining lines
+
+"" Tabs
+"set smarttab
+set expandtab           " Tabs to Spaces
+set softtabstop=4       " Fake Tabs feel like real ones when editing
+set shiftwidth=4        " A Tab equals 4 spaces
+set shiftround          " round indent (i.e. < >) to multiple of shiftwidth
+
+set textwidth=79
+
+"" Proper Clipboard integration
+set clipboard=unnamedplus
+
+"" Spelling
+set spell
+
+"" Default encoding
+set encoding=utf-8
+
+set cursorline         " Draw a cursorline (makes redrawing slower)
+
+" set true colors
+set termguicolors
+" help xterm-true-color (needed to work inside tmux)
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+" undercurl
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
+
+set background=dark
+
+"" Misc
+set nojoinspaces        " Don't insert two spaces after .?! when joining lines
+
+" quick fixes for termguicolors
+hi SpellBad cterm=undercurl ctermbg=None
+hi SpellCap cterm=undercurl ctermbg=None
+hi SpellRare cterm=undercurl ctermbg=None
+hi SpellLocal cterm=undercurl ctermbg=None
+" remove underline so we can see undercurl
+hi CursorLine cterm=None
+
+" netrw options
+let g:netrw_banner=0        " disable banner
+let g:netrw_liststyle=3     " tree view
+
+" packadd! gnupg
+
+" syntastic options
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_checkers = ["python", "flake8", "mypy"]
