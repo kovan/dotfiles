@@ -170,3 +170,4 @@ esac
 
 # <<< juliaup initialize <<<
 . "$HOME/.cargo/env"
+export PATH="$HOME/.npm-global/bin:$PATH"

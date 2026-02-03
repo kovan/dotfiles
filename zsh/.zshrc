@@ -265,3 +265,4 @@ path=('/home/k/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+export PATH="$HOME/.npm-global/bin:$PATH"

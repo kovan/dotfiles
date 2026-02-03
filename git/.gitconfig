@@ -33,3 +33,5 @@
 	pager = delta
 [interactive]
 	diffFilter = delta --color-only
+[http]
+	cookiefile = /home/k/.gitcookies
