@@ -39,8 +39,3 @@ case ":$PATH:" in
         ;;
 esac
 
-# <<< juliaup initialize <<<
-# >>> xmake >>>
-test -f "/home/k/.xmake/profile" && source "/home/k/.xmake/profile"
-# <<< xmake <<<
-. "$HOME/.cargo/env"
