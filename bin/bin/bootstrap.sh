@@ -45,6 +45,7 @@ ca-certificates
 starship
 lsof
 ttf-fira-code
+mg
 "
 
 echo "$packages" | while read -r pkg; do

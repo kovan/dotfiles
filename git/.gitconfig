@@ -1,6 +1,6 @@
 [user]
 	name = kovan
-        email = you@example.com
+	email = xaum.io@gmail.com
 
 [alias]
         graph = log --graph --oneline --all --simplify-by-decoration
