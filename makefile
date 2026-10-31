@@ -1,6 +1,6 @@
 all:
 	stow --adopt --target=$$HOME --stow */
-	git checkout HEAD
+	git checkout -- .
 	stow --verbose --target=$$HOME --restow */
 
 delete:
